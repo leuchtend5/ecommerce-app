@@ -16,7 +16,9 @@ const SearchContainer = styled.div`
 
     &::placeholder {
       color: white;
-      font-size: 1.1rem;
+      font-size: 1rem;
+      font-weight: normal;
+      opacity: 0.5;
     }
   }
 

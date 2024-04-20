@@ -1,3 +1,12 @@
+import { ProductContainer, FirstSection, HeroImage } from './styles';
+import heroImage from '../../assets/images/hero-image-product.webp';
+
 export default function Products() {
-  return <h1>Products</h1>;
+  return (
+    <ProductContainer>
+      <FirstSection>
+        <HeroImage src={heroImage} alt="hero image" />
+      </FirstSection>
+    </ProductContainer>
+  );
 }

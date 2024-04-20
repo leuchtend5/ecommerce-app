@@ -17,4 +17,5 @@
 body {
   background-color: #eeeeee;
   font-family: content-font;
+  scroll-behavior: smooth;
 }

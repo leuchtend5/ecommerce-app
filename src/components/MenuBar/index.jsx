@@ -10,8 +10,10 @@ export default function MenuBar() {
         <li>Products</li>
         <li>Contact</li>
       </StyledMenu>
-      <SearchBar />
-      <Cart />
+      <div>
+        <SearchBar />
+        <Cart />
+      </div>
     </MenuBarContainer>
   );
 }

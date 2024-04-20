@@ -36,7 +36,7 @@ export default function Header() {
       transition={{ duration: 0.25, ease: 'easeInOut' }}
       blurActive={blurActive}
     >
-      <img src={logo} alt="asd" width={100} />
+      <img src={logo} alt="logo" width={120} />
       <MenuBar />
     </HeaderContainer>
   );

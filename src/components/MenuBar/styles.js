@@ -2,13 +2,19 @@ import styled from 'styled-components';
 
 const MenuBarContainer = styled.nav`
   display: flex;
-  gap: 30px;
+  gap: 70px;
   align-items: center;
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
 `;
 
 const StyledMenu = styled.ul`
   display: flex;
-  gap: 30px;
+  gap: 50px;
 
   li {
     list-style: none;
@@ -18,6 +24,7 @@ const StyledMenu = styled.ul`
 
     &:hover {
       border-bottom-color: white;
+      filter: brightness(80%);
     }
   }
 `;
