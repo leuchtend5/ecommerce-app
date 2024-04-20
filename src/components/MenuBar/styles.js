@@ -16,15 +16,20 @@ const StyledMenu = styled.ul`
   display: flex;
   gap: 50px;
 
-  li {
+  .nav-link {
     list-style: none;
     cursor: pointer;
     font-size: 1.2rem;
     border-bottom: 1px solid transparent;
+    text-decoration: none;
 
     &:hover {
       border-bottom-color: white;
       filter: brightness(80%);
+    }
+
+    &:visited {
+      color: white;
     }
   }
 `;

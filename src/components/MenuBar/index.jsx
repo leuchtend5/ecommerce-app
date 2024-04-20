@@ -1,14 +1,21 @@
 import SearchBar from '../SearchBar';
 import Cart from '../Cart';
 import { MenuBarContainer, StyledMenu } from './styles';
+import { Link } from 'react-router-dom';
 
 export default function MenuBar() {
   return (
     <MenuBarContainer>
       <StyledMenu>
-        <li>Home</li>
-        <li>Products</li>
-        <li>Contact</li>
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
+        <Link to="products" className="nav-link">
+          Products
+        </Link>
+        <Link to="/" className="nav-link">
+          Products
+        </Link>
       </StyledMenu>
       <div>
         <SearchBar />
