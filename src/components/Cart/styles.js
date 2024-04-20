@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
 const CartContainer = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .bubble {
     position: absolute;

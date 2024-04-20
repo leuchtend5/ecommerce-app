@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { HiMagnifyingGlass } from 'react-icons/hi2';
 import SearchContainer from './styles';
 import { useState } from 'react';
 
@@ -23,7 +22,7 @@ export default function SearchBar() {
         onBlur={handleBlur}
       ></input>
       <button>
-        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <HiMagnifyingGlass />
       </button>
     </SearchContainer>
   );

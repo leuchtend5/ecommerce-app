@@ -48,6 +48,9 @@ const StyledCard = styled.div`
 const StyledProductCard = styled(StyledCard)`
   .productRate {
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
 
   .productName {

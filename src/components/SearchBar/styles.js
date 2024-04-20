@@ -19,6 +19,7 @@ const SearchContainer = styled.div`
       font-size: 1rem;
       font-weight: normal;
       opacity: 0.5;
+      text-align: center;
     }
   }
 
@@ -27,7 +28,7 @@ const SearchContainer = styled.div`
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     cursor: pointer;
   }
 `;

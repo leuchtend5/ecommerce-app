@@ -1,7 +1,6 @@
 import dummy from '../../assets/images/dummy.jpg';
 import { StyledCategoryCard, StyledProductCard } from './styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FaStar } from 'react-icons/fa';
 
 function CategoryCard() {
   return (
@@ -25,7 +24,7 @@ function ProductCard() {
         <div className="firstRow">
           <p className="productName">Dummy</p>
           <div className="productRate">
-            <FontAwesomeIcon icon={faStar} /> 3.9
+            <FaStar /> 3.9
           </div>
         </div>
         <div className="secondRow">
