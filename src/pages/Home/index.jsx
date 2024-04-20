@@ -26,7 +26,7 @@ export default function Home() {
       </FirstSection>
       <SecondSection>
         <h1>Shop By Category</h1>
-        <div className="cardContainer">
+        <div className="card-container">
           <CategoryCard />
           <CategoryCard />
           <CategoryCard />
@@ -34,7 +34,7 @@ export default function Home() {
       </SecondSection>
       <SecondSection>
         <h1>Best Sellers</h1>
-        <div className="cardContainer">
+        <div className="card-container">
           <ProductCard />
           <ProductCard />
           <ProductCard />

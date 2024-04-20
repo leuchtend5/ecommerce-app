@@ -79,7 +79,7 @@ const SecondSection = styled.section`
   font-size: 2.5rem;
   align-items: center;
 
-  .cardContainer {
+  .card-container {
     display: flex;
     gap: 80px;
   }

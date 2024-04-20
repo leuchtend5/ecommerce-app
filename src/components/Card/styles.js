@@ -46,20 +46,20 @@ const StyledCard = styled.div`
 `;
 
 const StyledProductCard = styled(StyledCard)`
-  .productRate {
+  .product-rate {
     font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 5px;
   }
 
-  .productName {
+  .product-name {
     font-weight: bold;
     font-size: 1.1rem;
   }
 
-  .firstRow,
-  .secondRow {
+  .first-row,
+  .second-row {
     display: flex;
     gap: 30px;
     justify-content: space-between;
