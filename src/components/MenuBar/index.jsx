@@ -14,7 +14,7 @@ export default function MenuBar() {
           Products
         </Link>
         <Link to="/" className="nav-link">
-          Products
+          Contact
         </Link>
       </StyledMenu>
       <div>
