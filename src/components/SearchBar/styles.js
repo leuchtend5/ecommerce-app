@@ -19,7 +19,6 @@ const SearchContainer = styled.div`
       font-size: 1rem;
       font-weight: normal;
       opacity: 0.5;
-      text-align: center;
     }
   }
 

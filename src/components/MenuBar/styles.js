@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const MenuBarContainer = styled.nav`
   display: flex;
-  gap: 70px;
+  gap: 50px;
   align-items: center;
 
   & > div {
@@ -22,6 +22,8 @@ const StyledMenu = styled.ul`
     font-size: 1.2rem;
     border-bottom: 1px solid transparent;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 
     &:hover {
       border-bottom-color: white;

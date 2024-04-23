@@ -1,4 +1,4 @@
-import { HiMagnifyingGlass } from 'react-icons/hi2';
+import { HiOutlineSearch } from 'react-icons/hi';
 import SearchContainer from './styles';
 import { useState } from 'react';
 
@@ -22,7 +22,7 @@ export default function SearchBar() {
         onBlur={handleBlur}
       ></input>
       <button>
-        <HiMagnifyingGlass />
+        <HiOutlineSearch />
       </button>
     </SearchContainer>
   );

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HomeContainer = styled.body`
+const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
