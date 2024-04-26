@@ -19,6 +19,8 @@ const StyledCard = styled.div`
 
   img {
     width: 200px;
+    object-fit: contain;
+    aspect-ratio: 16 / 18;
   }
 
   .container {
@@ -26,6 +28,7 @@ const StyledCard = styled.div`
     gap: 10px;
     flex-direction: column;
     font-size: 1rem;
+    font-weight: bold;
     width: 100%;
     padding: 0 10px;
   }

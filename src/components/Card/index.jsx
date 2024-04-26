@@ -1,14 +1,37 @@
 import dummy from '../../assets/images/dummy.jpg';
+import jewelry from '../../assets/images/category/jewelry.webp';
+import men_cloth from '../../assets/images/category/men_clothing.webp';
+import women_cloth from '../../assets/images/category/women_clothing.webp';
+import electronic from '../../assets/images/category/electronics.webp';
 import { StyledCategoryCard, StyledProductCard } from './styles';
 import { FaStar } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
-function CategoryCard() {
+function getCategoryImg(category) {
+  switch (category) {
+    case 'electronics':
+      return electronic;
+    case 'jewelery':
+      return jewelry;
+    case "men's clothing":
+      return men_cloth;
+    case "women's clothing":
+      return women_cloth;
+  }
+}
+
+function capitalizeFirstLetter(string) {
+  const result = string.charAt(0).toUpperCase();
+  return result + string.slice(1);
+}
+
+function CategoryCard({ category }) {
   return (
     <StyledCategoryCard>
-      <img src={dummy} alt="" />
+      <img src={getCategoryImg(category)} alt="" />
 
       <div className="container">
-        <div>Category</div>
+        <div>{capitalizeFirstLetter(category)}</div>
         <button>Shop now</button>
       </div>
     </StyledCategoryCard>
@@ -35,5 +58,9 @@ function ProductCard() {
     </StyledProductCard>
   );
 }
+
+CategoryCard.propTypes = {
+  category: PropTypes.string,
+};
 
 export { CategoryCard, ProductCard };
