@@ -82,6 +82,7 @@ const SecondSection = styled.section`
   .card-container {
     display: flex;
     gap: 80px;
+    flex-wrap: wrap;
   }
 `;
 

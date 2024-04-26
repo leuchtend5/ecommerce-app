@@ -6,6 +6,7 @@ const FooterContainer = styled.footer`
   text-align: center;
   height: 200px;
   margin-top: 100px;
+  font-size: 1.2rem;
 
   .email-section {
     background-color: pink;
