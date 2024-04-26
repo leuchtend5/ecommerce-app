@@ -6,7 +6,7 @@ import {
   SecondSection,
   Container,
 } from './styles';
-import heroImage from '../../assets/images/hero-image-product.webp';
+import heroImage from '../../assets/images/hero/hero-image-product.webp';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { ProductCard } from '../../components/Card';
 

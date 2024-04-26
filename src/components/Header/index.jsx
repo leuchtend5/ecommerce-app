@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/logo/logo.png';
 import MenuBar from '../MenuBar';
 import HeaderContainer from './styles';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
