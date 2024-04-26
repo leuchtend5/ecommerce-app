@@ -6,10 +6,14 @@ import {
   SecondSection,
   WelcomeTextContainer,
 } from './styles';
-import heroImage from '../../assets/images/hero-image.webp';
+import heroImage from '../../assets/images/hero/hero-image.webp';
 import { ProductCard, CategoryCard } from '../../components/Card';
+import useFetch from '../../hooks/useFetch';
 
 export default function Home() {
+  const url = 'https://fakestoreapi.com/products/categories';
+  const [data] = useFetch(url);
+
   return (
     <HomeContainer>
       <FirstSection>
@@ -27,9 +31,11 @@ export default function Home() {
       <SecondSection>
         <h1>Shop By Category</h1>
         <div className="card-container">
-          <CategoryCard />
-          <CategoryCard />
-          <CategoryCard />
+          {!data ? (
+            <h1>loading ...</h1>
+          ) : (
+            data.map((category, index) => <CategoryCard key={index} category={category} />)
+          )}
         </div>
       </SecondSection>
       <SecondSection>
