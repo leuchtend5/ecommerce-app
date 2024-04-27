@@ -21,8 +21,16 @@ function getCategoryImg(category) {
 }
 
 function capitalizeFirstLetter(string) {
-  const result = string.charAt(0).toUpperCase();
-  return result + string.slice(1);
+  const split = string.split(' ');
+  const newString = [];
+
+  split.forEach((word) => {
+    const newWord = word.charAt(0).toUpperCase() + word.slice(1);
+    newString.push(newWord);
+  });
+
+  const result = newString.join(' ');
+  return result;
 }
 
 function CategoryCard({ category }) {
