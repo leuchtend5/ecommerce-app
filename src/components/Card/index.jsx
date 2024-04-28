@@ -1,4 +1,3 @@
-import dummy from '../../assets/images/dummy.jpg';
 import jewelry from '../../assets/images/category/jewelry.webp';
 import men_cloth from '../../assets/images/category/men_clothing.webp';
 import women_cloth from '../../assets/images/category/women_clothing.webp';
@@ -46,20 +45,19 @@ function CategoryCard({ category }) {
   );
 }
 
-function ProductCard() {
+function ProductCard({ image, name, price, rate }) {
   return (
     <StyledProductCard>
-      <img src={dummy} alt="" />
-
+      <img src={image} alt="" />
       <div className="container">
-        <div className="first-row">
-          <p className="product-name">Dummy</p>
-          <div className="product-rate">
-            <FaStar /> 3.9
+        <div>{name}</div>
+        <div>
+          <div className="product-info">
+            <p className="product-price">${price}</p>
+            <div className="product-rate">
+              <FaStar /> {rate}
+            </div>
           </div>
-        </div>
-        <div className="second-row">
-          <p className="product-price">$100.00</p>
           <button>Add to cart</button>
         </div>
       </div>
@@ -69,6 +67,13 @@ function ProductCard() {
 
 CategoryCard.propTypes = {
   category: PropTypes.string,
+};
+
+ProductCard.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  rate: PropTypes.number,
 };
 
 export { CategoryCard, ProductCard };

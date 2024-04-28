@@ -10,6 +10,7 @@ const StyledCard = styled.div`
   cursor: pointer;
   border-radius: 8px;
   transition: transform 0.3s ease;
+  width: min-content;
 
   &:hover {
     transform: scale(1.05);
@@ -25,12 +26,29 @@ const StyledCard = styled.div`
 
   .container {
     display: flex;
-    gap: 10px;
     flex-direction: column;
+    align-items: center;
+    gap: 15px;
     font-size: 1rem;
     font-weight: bold;
     width: 100%;
+    height: 100%;
     padding: 0 10px;
+
+    & > div:nth-child(1) {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    & > div:nth-child(2) {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      width: 100%;
+    }
   }
 
   button {
@@ -40,6 +58,7 @@ const StyledCard = styled.div`
     border: none;
     border-radius: 6px;
     color: white;
+    width: fit-content;
 
     &:hover {
       filter: brightness(90%);
@@ -56,17 +75,12 @@ const StyledProductCard = styled(StyledCard)`
     gap: 5px;
   }
 
-  .product-name {
-    font-weight: bold;
-    font-size: 1.1rem;
-  }
-
-  .first-row,
-  .second-row {
+  .product-info {
     display: flex;
     gap: 30px;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    width: 100%;
   }
 `;
 
