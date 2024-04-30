@@ -84,6 +84,11 @@ const SecondSection = styled.section`
     gap: 80px;
     flex-wrap: wrap;
   }
+
+  .skeleton-row {
+    display: flex;
+    gap: 20px;
+  }
 `;
 
 export {

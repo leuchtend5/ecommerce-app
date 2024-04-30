@@ -9,6 +9,7 @@ import {
 import heroImage from '../../assets/images/hero/hero-image.webp';
 import { ProductCard, CategoryCard } from '../../components/Card';
 import useFetch from '../../hooks/useFetch';
+import Skeleton from 'react-loading-skeleton';
 
 export default function Home() {
   const urlCategories = 'https://fakestoreapi.com/products/categories';
@@ -39,7 +40,13 @@ export default function Home() {
         <h1>Shop By Category</h1>
         <div className="card-container">
           {!dataCategory ? (
-            <h1>loading ...</h1>
+            <Skeleton
+              height={300}
+              width={200}
+              count={4}
+              containerClassName="skeleton-row"
+              baseColor="#d1d1d1"
+            />
           ) : (
             dataCategory.map((category, index) => <CategoryCard key={index} category={category} />)
           )}
@@ -49,7 +56,13 @@ export default function Home() {
         <h1>Best Sellers</h1>
         <div className="card-container">
           {!dataProduct ? (
-            <h1>loading ...</h1>
+            <Skeleton
+              height={300}
+              width={200}
+              count={4}
+              containerClassName="skeleton-row"
+              baseColor="#d1d1d1"
+            />
           ) : (
             filterBySellCount(dataProduct).map((item, index) => (
               <ProductCard

@@ -27,7 +27,6 @@ const StyledMenu = styled.ul`
 
     &:hover {
       border-bottom-color: white;
-      filter: brightness(80%);
     }
 
     &:visited {

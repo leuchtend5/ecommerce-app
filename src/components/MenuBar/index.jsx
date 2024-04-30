@@ -2,7 +2,6 @@ import SearchBar from '../SearchBar';
 import Cart from '../Cart';
 import { MenuBarContainer, StyledMenu } from './styles';
 import { Link } from 'react-router-dom';
-import { RiArrowDropDownLine } from 'react-icons/ri';
 
 export default function MenuBar() {
   return (
@@ -12,7 +11,7 @@ export default function MenuBar() {
           Home
         </Link>
         <Link to="products" className="nav-link">
-          Products <RiArrowDropDownLine />
+          Products
         </Link>
         <Link to="/" className="nav-link">
           Contact
