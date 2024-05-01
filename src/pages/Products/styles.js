@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
-const ProductContainer = styled.body`
+const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
+  margin-bottom: 200px;
 `;
 
 const FirstSection = styled.section`
@@ -27,7 +28,6 @@ const HeroImage = styled.img`
 `;
 
 const SecondSection = styled.section`
-  height: 1000px;
   padding: 0px 100px;
   display: flex;
   flex-direction: column;
@@ -56,23 +56,42 @@ const SecondSection = styled.section`
     flex-direction: column;
     gap: 10px;
     font-size: 1.1rem;
+    padding: 0 10px;
 
-    & > p {
+    .nav-link {
+      list-style: none;
       cursor: pointer;
-    }
-  }
+      font-size: 1.2rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      color: black;
+      padding: 3px 6px;
+      border-radius: 4px;
 
-  .product-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    padding-left: 40px;
+      &:hover {
+        background-color: #e3e1e1;
+      }
+
+      &:visited {
+        color: black;
+      }
+
+      &.selected {
+        background-color: #e3e1e1;
+      }
+    }
   }
 `;
 
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 5fr;
+
+  .skeleton {
+    display: flex;
+    gap: 20px;
+  }
 `;
 
 export { ProductContainer, FirstSection, HeroImage, ImageOverlay, SecondSection, Container };
