@@ -6,8 +6,8 @@ import { MdOutlineEmail } from 'react-icons/md';
 
 export default function Footer() {
   return (
-    <div>
-      <FooterContainer>
+    <FooterContainer>
+      <div className="footer-information">
         <div className="email-section">
           <div className="text-content">
             <p>Catch up with us!</p>
@@ -50,8 +50,8 @@ export default function Footer() {
             </StyledLogo>
           </div>
         </div>
-      </FooterContainer>
+      </div>
       <CopyrightContainer>Copyright © {new Date().getFullYear()} Leuchtend</CopyrightContainer>
-    </div>
+    </FooterContainer>
   );
 }

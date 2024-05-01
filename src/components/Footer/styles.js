@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 const FooterContainer = styled.footer`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  text-align: center;
-  height: 200px;
-  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
   font-size: 1.2rem;
   background-color: #a1a1a1;
   color: white;
+  margin-top: auto;
+
+  .footer-information {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+  }
 
   .email-section {
     display: flex;
