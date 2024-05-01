@@ -5,6 +5,7 @@ import electronic from '../../assets/images/category/electronics.webp';
 import { StyledCategoryCard, StyledProductCard } from './styles';
 import { FaStar } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
 
 function getCategoryImg(category) {
   switch (category) {
@@ -17,19 +18,6 @@ function getCategoryImg(category) {
     case "women's clothing":
       return women_cloth;
   }
-}
-
-function capitalizeFirstLetter(string) {
-  const split = string.split(' ');
-  const newString = [];
-
-  split.forEach((word) => {
-    const newWord = word.charAt(0).toUpperCase() + word.slice(1);
-    newString.push(newWord);
-  });
-
-  const result = newString.join(' ');
-  return result;
 }
 
 function CategoryCard({ category }) {
