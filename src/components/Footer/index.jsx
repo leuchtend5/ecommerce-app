@@ -21,16 +21,16 @@ export default function Footer() {
         <div className="site-section">
           <p>Shop</p>
           <ul>
-            <Link to="/" className="site-link">
+            <Link to="/products/category/electronics" className="site-link">
               Electronics
             </Link>
-            <Link to="/" className="site-link">
+            <Link to="/products/category/jewelery" className="site-link">
               Jewelery
             </Link>
-            <Link to="/" className="site-link">
+            <Link to="/products/category/men's%20clothing" className="site-link">
               Men's Clothing
             </Link>
-            <Link to="/" className="site-link">
+            <Link to="/products/category/women's%20clothing" className="site-link">
               Women's Clothing
             </Link>
           </ul>
