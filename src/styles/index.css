@@ -19,3 +19,9 @@ body {
   font-family: content-font;
   scroll-behavior: smooth;
 }
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
