@@ -24,6 +24,7 @@ const StyledMenu = styled.ul`
     text-decoration: none;
     display: flex;
     align-items: center;
+    color: white;
 
     &:hover {
       border-bottom-color: white;
