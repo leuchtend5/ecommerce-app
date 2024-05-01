@@ -64,9 +64,9 @@ export default function Home() {
               baseColor="#d1d1d1"
             />
           ) : (
-            filterBySellCount(dataProduct).map((item, index) => (
+            filterBySellCount(dataProduct).map((item) => (
               <ProductCard
-                key={index}
+                key={item.id}
                 image={item.image}
                 name={item.title}
                 price={item.price}
