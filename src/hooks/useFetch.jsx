@@ -6,20 +6,35 @@ export default function useFetch(url) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchData = async () => {
       try {
         const response = await fetch(url);
         const result = await response.json();
-        setData(result);
+        if (isMounted) {
+          setData(result);
+        }
       } catch (error) {
-        setError(error);
+        if (isMounted) {
+          setError(error);
+        }
       } finally {
-        setLoading(false);
+        if (isMounted) {
+          setLoading(false);
+        }
       }
     };
 
     fetchData();
+
+    return () => {
+      isMounted = false;
+      setData(null);
+      setLoading(true);
+      setError(null);
+    };
   }, [url]);
 
-  return [data, error, loading];
+  return [data, loading, error];
 }
