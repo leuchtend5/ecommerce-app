@@ -91,6 +91,7 @@ const Container = styled.div`
   .skeleton {
     display: flex;
     gap: 20px;
+    padding: 40px;
   }
 `;
 
