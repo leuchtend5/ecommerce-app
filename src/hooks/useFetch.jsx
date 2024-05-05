@@ -6,11 +6,12 @@ export default function useFetch(url) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const controller = new AbortController();
     let isMounted = true;
 
     const fetchData = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, { signal: controller.signal });
         const result = await response.json();
         if (isMounted) {
           setData(result);
@@ -30,9 +31,8 @@ export default function useFetch(url) {
 
     return () => {
       isMounted = false;
-      setData(null);
       setLoading(true);
-      setError(null);
+      controller.abort();
     };
   }, [url]);
 
