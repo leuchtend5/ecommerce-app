@@ -18,6 +18,8 @@ import SortItems from '../../components/SortItems';
 
 export default function Products() {
   let { category } = useParams();
+  if (!category) category = 'all categories'; // set as default parameter
+
   const urlCategories = {
     'all categories': 'https://fakestoreapi.com/products',
     electronics: 'https://fakestoreapi.com/products/category/electronics',
