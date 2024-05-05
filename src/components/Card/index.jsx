@@ -27,7 +27,6 @@ function CategoryCard({ category }) {
 
       <div className="container">
         <div>{capitalizeFirstLetter(category)}</div>
-        <button>Shop now</button>
       </div>
     </StyledCategoryCard>
   );
