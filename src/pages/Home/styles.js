@@ -84,6 +84,14 @@ const SecondSection = styled.section`
     display: flex;
     gap: 80px;
     flex-wrap: wrap;
+
+    a {
+      text-decoration: none;
+
+      &:visited {
+        color: black;
+      }
+    }
   }
 
   .skeleton-row {
