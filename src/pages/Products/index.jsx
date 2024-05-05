@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { CategoryContext } from '../../context/CategoryContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import useFetch from '../../hooks/useFetch';
 import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
@@ -13,9 +13,8 @@ import {
   Container,
 } from './styles';
 import heroImage from '../../assets/images/hero/hero-image-product.webp';
-import { RiArrowDropDownLine } from 'react-icons/ri';
-
 import ProductsList from '../../components/ProductsList';
+import SortItems from '../../components/SortItems';
 
 export default function Products() {
   let { category } = useParams();
@@ -28,6 +27,27 @@ export default function Products() {
   };
   const categoryList = useContext(CategoryContext);
   const [dataProduct, isLoading] = useFetch(urlCategories[category || 'all categories']);
+  const [sortValue, setSortValue] = useState('Price: High-Low');
+
+  function getSortValue(data) {
+    setSortValue(data);
+  }
+
+  function sortDataProduct(value) {
+    const sortFunction = {
+      'Price: High-Low': (a, b) => b.price - a.price,
+      'Price: Low-High': (a, b) => a.price - b.price,
+      'Selling Count': (a, b) => b.rating.count - a.rating.count,
+      'Name: A-Z': (a, b) => a.title.localeCompare(b.title),
+      'Name: Z-A': (a, b) => b.title.localeCompare(a.title),
+    };
+
+    if (dataProduct !== null) {
+      return [...dataProduct].sort(sortFunction[value]);
+    }
+
+    return [];
+  }
 
   return (
     <ProductContainer>
@@ -38,9 +58,7 @@ export default function Products() {
       <SecondSection>
         <div>
           <p>Categories</p>
-          <p>
-            Sort By <RiArrowDropDownLine size={30} />
-          </p>
+          <SortItems getSortValue={getSortValue} />
         </div>
         <Container>
           <div className="category-section">
@@ -49,7 +67,7 @@ export default function Products() {
             ) : (
               ['all categories', ...categoryList].map((cat) => (
                 <Link
-                  to={`category/${cat}`}
+                  to={`/products/category/${cat}`}
                   key={cat}
                   className={`nav-link ${cat === category ? 'selected' : ''}`}
                 >
@@ -67,7 +85,7 @@ export default function Products() {
               baseColor="#d1d1d1"
             />
           ) : (
-            <ProductsList data={dataProduct} />
+            <ProductsList data={sortDataProduct(sortValue)} />
           )}
         </Container>
       </SecondSection>
