@@ -41,13 +41,6 @@ const SecondSection = styled.section`
       font-size: 1.8rem;
       font-weight: bold;
     }
-
-    & > p:nth-child(2) {
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-    }
   }
 
   .category-section {
@@ -56,7 +49,7 @@ const SecondSection = styled.section`
     flex-direction: column;
     gap: 10px;
     font-size: 1.1rem;
-    padding: 0 10px;
+    padding-right: 10px;
 
     .nav-link {
       list-style: none;
