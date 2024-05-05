@@ -10,6 +10,7 @@ import heroImage from '../../assets/images/hero/hero-image.webp';
 import { ProductCard, CategoryCard } from '../../components/Card';
 import useFetch from '../../hooks/useFetch';
 import Skeleton from 'react-loading-skeleton';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const urlCategories = 'https://fakestoreapi.com/products/categories';
@@ -33,7 +34,9 @@ export default function Home() {
             <p>Discover fashion and electronics at their finest</p>
             <p>Start exploring now!</p>
           </div>
-          <button>Shop Now</button>
+          <Link to={'/products'}>
+            <button>Shop Now</button>
+          </Link>
         </WelcomeTextContainer>
       </FirstSection>
       <SecondSection>
@@ -48,7 +51,13 @@ export default function Home() {
               baseColor="#d1d1d1"
             />
           ) : (
-            dataCategory.map((category, index) => <CategoryCard key={index} category={category} />)
+            dataCategory.map((category) => {
+              return (
+                <Link to={`/products/category/${category}`} key={category}>
+                  <CategoryCard key={category} category={category} />
+                </Link>
+              );
+            })
           )}
         </div>
       </SecondSection>
