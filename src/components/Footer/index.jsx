@@ -7,7 +7,7 @@ import { MdOutlineEmail } from 'react-icons/md';
 export default function Footer() {
   return (
     <FooterContainer>
-      <div className="footer-information">
+      <div className="footer-information" id="footer">
         <div className="email-section">
           <div className="text-content">
             <p>Catch up with us!</p>

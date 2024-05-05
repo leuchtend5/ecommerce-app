@@ -13,9 +13,9 @@ export default function MenuBar() {
         <Link to="products" className="nav-link">
           Products
         </Link>
-        <Link to="/" className="nav-link">
+        <a href="#footer" className="nav-link">
           Contact
-        </Link>
+        </a>
       </StyledMenu>
       <div>
         <SearchBar />
