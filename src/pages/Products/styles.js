@@ -30,62 +30,83 @@ const HeroImage = styled.img`
 const SecondSection = styled.section`
   padding: 0px 100px;
   display: flex;
+`;
+
+const CategorySection = styled.div`
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
+  font-size: 1.1rem;
+  padding-right: 50px;
+
+  p {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+
+  & > div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .nav-link {
+    list-style: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    padding: 3px 6px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: #e3e1e1;
+    }
+
+    &:visited {
+      color: black;
+    }
+
+    &.selected {
+      background-color: #e3e1e1;
+    }
+  }
+`;
+
+const ItemsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
 
   & > div:nth-child(1) {
     display: flex;
     justify-content: space-between;
-
-    & > p:nth-child(1) {
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
+    padding-left: 40px;
+    align-items: center;
   }
-
-  .category-section {
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 1.1rem;
-    padding-right: 10px;
-
-    .nav-link {
-      list-style: none;
-      cursor: pointer;
-      font-size: 1.2rem;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      color: black;
-      padding: 3px 6px;
-      border-radius: 4px;
-
-      &:hover {
-        background-color: #e3e1e1;
-      }
-
-      &:visited {
-        color: black;
-      }
-
-      &.selected {
-        background-color: #e3e1e1;
-      }
-    }
-  }
-`;
-
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 5fr;
 
   .skeleton {
     display: flex;
     gap: 20px;
-    padding: 40px;
+    padding-left: 40px;
+  }
+
+  .search-result {
+    font-size: 1.2rem;
+    font-weight: bold;
   }
 `;
 
-export { ProductContainer, FirstSection, HeroImage, ImageOverlay, SecondSection, Container };
+export {
+  ProductContainer,
+  FirstSection,
+  HeroImage,
+  ImageOverlay,
+  SecondSection,
+  CategorySection,
+  ItemsSection,
+};

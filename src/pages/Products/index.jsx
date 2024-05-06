@@ -10,7 +10,8 @@ import {
   HeroImage,
   ImageOverlay,
   SecondSection,
-  Container,
+  CategorySection,
+  ItemsSection,
 } from './styles';
 import heroImage from '../../assets/images/hero/hero-image-product.webp';
 import ProductsList from '../../components/ProductsList';
@@ -58,12 +59,9 @@ export default function Products() {
         <HeroImage src={heroImage} alt="hero image" />
       </FirstSection>
       <SecondSection>
-        <div>
+        <CategorySection>
           <p>Categories</p>
-          <SortItems getSortValue={getSortValue} />
-        </div>
-        <Container>
-          <div className="category-section">
+          <div>
             {!categoryList ? (
               <Skeleton count={5} width={80} />
             ) : (
@@ -78,6 +76,15 @@ export default function Products() {
               ))
             )}
           </div>
+        </CategorySection>
+        <ItemsSection>
+          <div>
+            <p>
+              Search result for : <span className="search-result">ASD</span>{' '}
+              <span className="search-result">(10)</span>
+            </p>
+            <SortItems getSortValue={getSortValue} />
+          </div>
           {isLoading ? (
             <Skeleton
               count={3}
@@ -89,7 +96,7 @@ export default function Products() {
           ) : (
             <ProductsList data={sortDataProduct(sortValue)} />
           )}
-        </Container>
+        </ItemsSection>
       </SecondSection>
     </ProductContainer>
   );
