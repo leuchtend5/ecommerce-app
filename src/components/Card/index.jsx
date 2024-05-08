@@ -6,6 +6,7 @@ import { StyledCategoryCard, StyledProductCard } from './styles';
 import { FaStar } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import capitalizeFirstLetter from '../../utils/capitalizeFirstLetter';
+import { Link } from 'react-router-dom';
 
 function getCategoryImg(category) {
   switch (category) {
@@ -20,15 +21,17 @@ function getCategoryImg(category) {
   }
 }
 
-function CategoryCard({ category }) {
+function CategoryCard({ category, route }) {
   return (
-    <StyledCategoryCard>
-      <img src={getCategoryImg(category)} alt="" />
+    <Link to={route}>
+      <StyledCategoryCard>
+        <img src={getCategoryImg(category)} alt="" />
 
-      <div className="container">
-        <div>{capitalizeFirstLetter(category)}</div>
-      </div>
-    </StyledCategoryCard>
+        <div className="container">
+          <div>{capitalizeFirstLetter(category)}</div>
+        </div>
+      </StyledCategoryCard>
+    </Link>
   );
 }
 
@@ -54,6 +57,7 @@ function ProductCard({ image, name, price, rate }) {
 
 CategoryCard.propTypes = {
   category: PropTypes.string,
+  route: PropTypes.string,
 };
 
 ProductCard.propTypes = {

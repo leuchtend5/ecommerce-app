@@ -53,9 +53,11 @@ export default function Home() {
           ) : (
             dataCategory.map((category) => {
               return (
-                <Link to={`/products/category/${category}`} key={category}>
-                  <CategoryCard key={category} category={category} />
-                </Link>
+                <CategoryCard
+                  key={category}
+                  category={category}
+                  route={`/products/category/${category}`}
+                />
               );
             })
           )}
