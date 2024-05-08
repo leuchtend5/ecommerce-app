@@ -5,15 +5,19 @@ import PropTypes from 'prop-types';
 export default function ProductsList({ data }) {
   return (
     <ProductSection>
-      {data.map((item) => (
-        <ProductCard
-          key={item.id}
-          image={item.image}
-          name={item.title}
-          price={item.price}
-          rate={item.rating.rate}
-        />
-      ))}
+      {data.length === 0 ? (
+        <h2>Not Found</h2>
+      ) : (
+        data.map((item) => (
+          <ProductCard
+            key={item.id}
+            image={item.image}
+            name={item.title}
+            price={item.price}
+            rate={item.rating.rate}
+          />
+        ))
+      )}
     </ProductSection>
   );
 }
