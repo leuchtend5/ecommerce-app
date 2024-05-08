@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { CategoryContext } from '../../context/CategoryContext';
 import { useContext, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
@@ -16,9 +16,11 @@ import {
 import heroImage from '../../assets/images/hero/hero-image-product.webp';
 import ProductsList from '../../components/ProductsList';
 import SortItems from '../../components/SortItems';
+import sortDataProduct from '../../utils/sortDataProduct';
+import filterProductsBySearch from '../../utils/filterProductsBySearch';
 
 export default function Products() {
-  let { category } = useParams();
+  let { category } = useParams(); // get category route parameter
   if (!category) category = 'all categories'; // set as default parameter
 
   const urlCategories = {
@@ -31,25 +33,13 @@ export default function Products() {
   const categoryList = useContext(CategoryContext);
   const [dataProduct, isLoading] = useFetch(urlCategories[category || 'all categories']);
   const [sortValue, setSortValue] = useState('Price: High-Low');
+  const [searchParams] = useSearchParams();
+  const getSearchParams = searchParams.get('search'); // get search query from route
+  const searchResult = filterProductsBySearch(getSearchParams, dataProduct); // filter dataProduct by search param
 
+  // callback function to get sort value from sortItem component
   function getSortValue(data) {
     setSortValue(data);
-  }
-
-  function sortDataProduct(value) {
-    const sortFunction = {
-      'Price: High-Low': (a, b) => b.price - a.price,
-      'Price: Low-High': (a, b) => a.price - b.price,
-      'Selling Count': (a, b) => b.rating.count - a.rating.count,
-      'Name: A-Z': (a, b) => a.title.localeCompare(b.title),
-      'Name: Z-A': (a, b) => b.title.localeCompare(a.title),
-    };
-
-    if (dataProduct !== null) {
-      return [...dataProduct].sort(sortFunction[value]);
-    }
-
-    return [];
   }
 
   return (
@@ -79,10 +69,15 @@ export default function Products() {
         </CategorySection>
         <ItemsSection>
           <div>
-            <p>
-              Search result for : <span className="search-result">ASD</span>{' '}
-              <span className="search-result">(10)</span>
-            </p>
+            {getSearchParams === null ? (
+              <div></div>
+            ) : (
+              <p>
+                Search result for : <span className="search-result">"{getSearchParams}"</span>{' '}
+                <span className="search-result">({searchResult.length})</span>
+              </p>
+            )}
+
             <SortItems getSortValue={getSortValue} />
           </div>
           {isLoading ? (
@@ -94,7 +89,15 @@ export default function Products() {
               baseColor="#d1d1d1"
             />
           ) : (
-            <ProductsList data={sortDataProduct(sortValue)} />
+            // Display dataProduct if there are no search parameters
+            // Otherwise, display filtered dataProduct based on the search parameters
+            <ProductsList
+              data={sortDataProduct(
+                sortValue,
+                getSearchParams !== null ? searchResult : dataProduct,
+                dataProduct,
+              )}
+            />
           )}
         </ItemsSection>
       </SecondSection>
