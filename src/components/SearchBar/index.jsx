@@ -1,9 +1,10 @@
 import { HiOutlineSearch } from 'react-icons/hi';
-import SearchContainer from './styles';
+import { SearchContainer } from './styles';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export default function SearchBar() {
+export default function SearchBar({ className, toggle }) {
   const [inputActive, setInputActive] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const navigate = useNavigate();
@@ -23,6 +24,11 @@ export default function SearchBar() {
   function handleButtonClick() {
     const trimmedSearchValue = searchValue.trim(); // to remove whitespace
 
+    // hide sidebar menu when user press enter or click the button
+    if (toggle) {
+      toggle();
+    }
+
     if (trimmedSearchValue !== '') {
       return navigate(`/products?search=${trimmedSearchValue}`);
     }
@@ -36,7 +42,7 @@ export default function SearchBar() {
   }
 
   return (
-    <SearchContainer>
+    <SearchContainer className={className}>
       <input
         type="text"
         placeholder={!inputActive ? 'Search for products' : ''}
@@ -52,3 +58,8 @@ export default function SearchBar() {
     </SearchContainer>
   );
 }
+
+SearchBar.propTypes = {
+  className: PropTypes.string,
+  toggle: PropTypes.func,
+};

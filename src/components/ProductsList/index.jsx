@@ -6,7 +6,7 @@ export default function ProductsList({ data }) {
   return (
     <ProductSection>
       {data.length === 0 ? (
-        <h2>Not Found</h2>
+        <h2>No items found.</h2>
       ) : (
         data.map((item) => (
           <ProductCard
@@ -15,6 +15,8 @@ export default function ProductsList({ data }) {
             name={item.title}
             price={item.price}
             rate={item.rating.rate}
+            count={item.rating.count}
+            route={`/product/${item.id}`}
           />
         ))
       )}

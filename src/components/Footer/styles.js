@@ -1,24 +1,24 @@
 import styled from 'styled-components';
+import { devices } from '../../utils/breakpoints';
 
 const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
-  font-size: 1.2rem;
   background-color: #a1a1a1;
   color: white;
   margin-top: auto;
 
   .footer-information {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     text-align: center;
+    gap: 40px;
+    padding: 30px 30px;
   }
 
   .email-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 40px 60px;
 
     .text-content {
       display: flex;
@@ -27,11 +27,11 @@ const FooterContainer = styled.footer`
 
       & > p:nth-child(1) {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
 
       & > p:nth-child(2) {
-        font-size: 1rem;
+        font-size: 0.9rem;
       }
     }
 
@@ -48,24 +48,23 @@ const FooterContainer = styled.footer`
         font-size: 1rem;
         padding: 5px;
       }
+    }
 
-      button {
-        background-color: #2e2d2d;
-        border: none;
-        height: 35px;
-        cursor: pointer;
-        padding: 10px;
-        color: white;
+    button {
+      background-color: #2e2d2d;
+      border: none;
+      height: 35px;
+      cursor: pointer;
+      padding: 10px;
+      color: white;
 
-        &:hover {
-          background-color: #545454;
-        }
+      &:hover {
+        background-color: #545454;
       }
     }
   }
 
   .site-section {
-    padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -73,18 +72,19 @@ const FooterContainer = styled.footer`
 
     & > p {
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     ul {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       width: fit-content;
 
       .site-link {
         text-decoration: none;
+        color: white;
 
         &:hover {
           filter: brightness(30%);
@@ -98,7 +98,6 @@ const FooterContainer = styled.footer`
   }
 
   .contact-section {
-    padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -113,8 +112,7 @@ const FooterContainer = styled.footer`
       display: flex;
       flex-direction: column;
       gap: 5px;
-
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
 
     .contact-logo {
@@ -123,14 +121,79 @@ const FooterContainer = styled.footer`
       font-size: 1.6rem;
     }
   }
+
+  @media screen and (${devices.tablet}) {
+    .footer-information {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .email-section {
+      button {
+        padding: 6px;
+      }
+    }
+  }
+
+  @media screen and (${devices['tablet-lg']}) {
+    .email-section {
+      button {
+        padding: 10px;
+      }
+    }
+  }
+
+  @media screen and (${devices.desktop}) {
+    .email-section {
+      padding: 40px 60px;
+
+      .text-content {
+        & > p:nth-child(1) {
+          font-size: 1.5rem;
+        }
+
+        & > p:nth-child(2) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+
+    .site-section {
+      padding: 40px;
+
+      & > p {
+        font-size: 1.5rem;
+      }
+
+      ul {
+        font-size: 1.1rem;
+      }
+    }
+
+    .contact-section {
+      padding: 40px;
+
+      .contact-info {
+        font-size: 1.1rem;
+      }
+    }
+  }
 `;
 
 const CopyrightContainer = styled.div`
   text-align: center;
   background-color: #a1a1a1;
   color: white;
-  padding-top: 60px;
   padding-bottom: 20px;
+  font-size: 1rem;
+
+  @media screen and (${devices.tablet}) {
+    padding-top: 30px;
+  }
+
+  @media screen and (${devices.desktop}) {
+    font-size: 1.2rem;
+  }
 `;
 
 const StyledLogo = styled.div`

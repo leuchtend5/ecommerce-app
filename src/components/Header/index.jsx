@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo/logo.png';
 import MenuBar from '../MenuBar';
-import HeaderContainer from './styles';
+import { HeaderContainer } from './styles';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 
 export default function Header() {
@@ -10,6 +11,8 @@ export default function Header() {
   const [hidden, setHidden] = useState(false);
   const [blurActive, setBlurActive] = useState(false);
 
+  // hide the navbar when scrolling down, display navbar when scrolling up
+  // set blur for certain scroll
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious();
     if (latest > previous && latest > 150) {
@@ -36,7 +39,9 @@ export default function Header() {
       transition={{ duration: 0.25, ease: 'easeInOut' }}
       blurActive={blurActive}
     >
-      <img src={logo} alt="logo" width={120} />
+      <Link to={'/'}>
+        <img src={logo} alt="logo" width={120} />
+      </Link>
       <MenuBar />
     </HeaderContainer>
   );

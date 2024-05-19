@@ -53,7 +53,7 @@ export default function Products() {
           <p>Categories</p>
           <div>
             {!categoryList ? (
-              <Skeleton count={5} width={80} />
+              <Skeleton count={5} width={150} containerClassName="skeleton" baseColor="#d1d1d1" />
             ) : (
               ['all categories', ...categoryList].map((cat) => (
                 <Link
@@ -82,7 +82,7 @@ export default function Products() {
           </div>
           {isLoading ? (
             <Skeleton
-              count={3}
+              count={4}
               width={200}
               height={300}
               containerClassName="skeleton"

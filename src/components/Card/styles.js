@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { devices } from '../../utils/breakpoints';
 
 const StyledCard = styled.div`
   background-color: white;
-  padding: 25px;
+  padding: 25px 15px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -10,7 +11,8 @@ const StyledCard = styled.div`
   cursor: pointer;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  width: min-content;
+  height: 100%;
+  max-width: 250px;
 
   &:hover {
     transform: scale(1.05);
@@ -18,10 +20,10 @@ const StyledCard = styled.div`
     filter: brightness(95%);
   }
 
-  img {
-    width: 200px;
+  .card-img {
     object-fit: contain;
-    aspect-ratio: 16 / 18;
+    aspect-ratio: 16 / 12;
+    width: 100%;
   }
 
   .container {
@@ -30,10 +32,7 @@ const StyledCard = styled.div`
     align-items: center;
     gap: 15px;
     font-size: 1rem;
-    font-weight: bold;
-    width: 100%;
     height: 100%;
-    padding: 0 10px;
 
     & > div:nth-child(1) {
       text-align: center;
@@ -52,7 +51,7 @@ const StyledCard = styled.div`
   }
 
   button {
-    padding: 4px 8px;
+    padding: 6px 10px;
     cursor: pointer;
     background-color: black;
     border: none;
@@ -65,11 +64,16 @@ const StyledCard = styled.div`
       background-color: grey;
     }
   }
+
+  @media screen and (${devices.desktop}) {
+    button {
+      font-size: 1rem;
+    }
+  }
 `;
 
 const StyledProductCard = styled(StyledCard)`
   .product-rate {
-    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -81,15 +85,8 @@ const StyledProductCard = styled(StyledCard)`
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    font-size: 1.1rem;
   }
 `;
 
-const StyledCategoryCard = styled(StyledCard)`
-  .container {
-    width: auto;
-    justify-content: center;
-    align-items: center;
-  }
-`;
-
-export { StyledCategoryCard, StyledProductCard };
+export { StyledCard, StyledProductCard };

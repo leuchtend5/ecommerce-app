@@ -1,9 +1,17 @@
-import SearchBar from '../SearchBar';
 import Cart from '../Cart';
-import { MenuBarContainer, StyledMenu } from './styles';
+import { MenuBarContainer, StyledMenu, StyledSearchBar, HamburgerIcon } from './styles';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import DropdownMenu from '../DropdownMenu';
+import SearchBar from '../SearchBar';
 
 export default function MenuBar() {
+  const [dropdownToggle, setDropdownToggle] = useState(false);
+
+  function handleDropdownToggle() {
+    setDropdownToggle(!dropdownToggle);
+  }
+
   return (
     <MenuBarContainer>
       <StyledMenu>
@@ -17,10 +25,12 @@ export default function MenuBar() {
           Contact
         </a>
       </StyledMenu>
-      <div>
+      <StyledSearchBar>
         <SearchBar />
-        <Cart />
-      </div>
+      </StyledSearchBar>
+      <Cart />
+      <HamburgerIcon onClick={handleDropdownToggle} />
+      <DropdownMenu toggle={handleDropdownToggle} open={dropdownToggle} />
     </MenuBarContainer>
   );
 }

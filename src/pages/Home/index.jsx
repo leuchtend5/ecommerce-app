@@ -40,15 +40,16 @@ export default function Home() {
         </WelcomeTextContainer>
       </FirstSection>
       <SecondSection>
-        <h1>Shop By Category</h1>
+        <h1>Categories</h1>
         <div className="card-container">
           {!dataCategory ? (
             <Skeleton
               height={300}
-              width={200}
+              width={230}
               count={4}
               containerClassName="skeleton-row"
               baseColor="#d1d1d1"
+              inline="true"
             />
           ) : (
             dataCategory.map((category) => {
@@ -69,10 +70,11 @@ export default function Home() {
           {!dataProduct ? (
             <Skeleton
               height={300}
-              width={200}
+              width={230}
               count={4}
               containerClassName="skeleton-row"
               baseColor="#d1d1d1"
+              inline="true"
             />
           ) : (
             filterBySellCount(dataProduct).map((item) => (
@@ -82,6 +84,8 @@ export default function Home() {
                 name={item.title}
                 price={item.price}
                 rate={item.rating.rate}
+                count={item.rating.count}
+                route={`/product/${item.id}`}
               />
             ))
           )}

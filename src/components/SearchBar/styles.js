@@ -4,15 +4,16 @@ const SearchContainer = styled.div`
   display: flex;
   align-items: center;
 
-  input {
+  & > input {
+    display: flex;
     border: none;
     background-color: transparent;
     border-bottom: 1px solid white;
     height: 30px;
-    width: 100%;
+    width: 11rem;
     color: white;
-    padding-left: 25px;
     outline: none;
+    text-align: right;
 
     &::placeholder {
       color: white;
@@ -22,14 +23,15 @@ const SearchContainer = styled.div`
     }
   }
 
-  button {
+  & > button {
     position: absolute;
+    display: flex;
     border: none;
     background-color: transparent;
     color: white;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     cursor: pointer;
   }
 `;
 
-export default SearchContainer;
+export { SearchContainer };

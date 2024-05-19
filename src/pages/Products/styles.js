@@ -1,10 +1,16 @@
 import styled from 'styled-components';
+import { devices } from '../../utils/breakpoints';
 
 const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 100px;
-  margin-bottom: 200px;
+  margin-bottom: 80px;
+  gap: 60px;
+
+  @media screen and (${devices['tablet-lg']}) {
+    gap: 100px;
+    margin-bottom: 200px;
+  }
 `;
 
 const FirstSection = styled.section`
@@ -28,39 +34,50 @@ const HeroImage = styled.img`
 `;
 
 const SecondSection = styled.section`
-  padding: 0px 100px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @media screen and (${devices['tablet-lg']}) {
+    flex-direction: row;
+    gap: 30px;
+    padding: 0 12vw;
+  }
+
+  @media screen and (${devices.desktop}) {
+    padding: 0 20vw;
+    justify-content: center;
+  }
 `;
 
 const CategorySection = styled.div`
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  font-size: 1.1rem;
-  padding-right: 50px;
+  padding: 10px;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  background-color: #e3e1e1;
 
   p {
-    font-size: 1.8rem;
-    font-weight: bold;
+    display: none;
   }
 
   & > div:nth-child(2) {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav-link {
     list-style: none;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     text-decoration: none;
     display: flex;
     align-items: center;
     color: black;
     padding: 3px 6px;
     border-radius: 4px;
+    white-space: nowrap;
 
     &:hover {
       background-color: #e3e1e1;
@@ -71,7 +88,45 @@ const CategorySection = styled.div`
     }
 
     &.selected {
-      background-color: #e3e1e1;
+      background-color: #d4d4d4;
+      font-weight: bolder;
+    }
+  }
+
+  .skeleton {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  @media screen and (${devices['tablet-lg']}) {
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    background-color: inherit;
+    overflow-x: inherit;
+    padding: 0 25px;
+
+    & > div:nth-child(2) {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .nav-link {
+      width: 100%;
+      font-size: 1.2rem;
+    }
+
+    p {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .skeleton {
+      flex-direction: column;
     }
   }
 `;
@@ -79,25 +134,53 @@ const CategorySection = styled.div`
 const ItemsSection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   gap: 25px;
+  align-items: center;
+  padding: 0 30px;
+  width: 100%;
 
   & > div:nth-child(1) {
     display: flex;
-    justify-content: space-between;
-    padding-left: 40px;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
+    width: 100%;
+  }
+
+  & > div:nth-child(2) {
+    width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    margin-inline: auto;
+    color: black;
+
+    &:visited {
+      color: black;
+    }
   }
 
   .skeleton {
     display: flex;
     gap: 20px;
-    padding-left: 40px;
+    flex-wrap: wrap;
   }
 
   .search-result {
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  @media screen and (${devices.tablet}) {
+    & > div:nth-child(1) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and (${devices['tablet-lg']}) {
+    padding: 0;
   }
 `;
 

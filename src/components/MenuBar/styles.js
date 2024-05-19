@@ -1,20 +1,24 @@
 import styled from 'styled-components';
+import { devices } from '../../utils/breakpoints';
+import { RxHamburgerMenu } from 'react-icons/rx';
 
 const MenuBarContainer = styled.nav`
   display: flex;
-  gap: 50px;
+  gap: 35px;
   align-items: center;
 
-  & > div {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  @media screen and (${devices.tablet}) {
+    gap: 50px;
   }
 `;
 
 const StyledMenu = styled.ul`
-  display: flex;
-  gap: 50px;
+  display: none;
+
+  @media screen and (${devices['tablet-lg']}) {
+    display: flex;
+    gap: 60px;
+  }
 
   .nav-link {
     list-style: none;
@@ -36,4 +40,21 @@ const StyledMenu = styled.ul`
   }
 `;
 
-export { MenuBarContainer, StyledMenu };
+const StyledSearchBar = styled.div`
+  display: none;
+
+  @media screen and (${devices['tablet-lg']}) {
+    display: flex;
+  }
+`;
+
+const HamburgerIcon = styled(RxHamburgerMenu)`
+  font-size: 2rem;
+  cursor: pointer;
+
+  @media screen and (${devices['tablet-lg']}) {
+    display: none;
+  }
+`;
+
+export { MenuBarContainer, StyledMenu, StyledSearchBar, HamburgerIcon };
