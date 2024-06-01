@@ -57,7 +57,7 @@ export default function Home() {
                 <CategoryCard
                   key={category}
                   category={category}
-                  route={`/products/category/${category}`}
+                  route={`/products/category/${category.replaceAll(' ', '-')}`}
                 />
               );
             })
