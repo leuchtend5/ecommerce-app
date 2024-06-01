@@ -21,17 +21,17 @@ import filterProductsBySearch from '../../utils/filterProductsBySearch';
 
 export default function Products() {
   let { category } = useParams(); // get category route parameter
-  if (!category) category = 'all categories'; // set as default parameter
+  if (!category) category = 'all-categories'; // set as default parameter
 
   const urlCategories = {
-    'all categories': 'https://fakestoreapi.com/products',
+    'all-categories': 'https://fakestoreapi.com/products',
     electronics: 'https://fakestoreapi.com/products/category/electronics',
     jewelery: 'https://fakestoreapi.com/products/category/jewelery',
-    "men's clothing": "https://fakestoreapi.com/products/category/men's%20clothing",
-    "women's clothing": "https://fakestoreapi.com/products/category/women's%20clothing",
+    "men's-clothing": "https://fakestoreapi.com/products/category/men's%20clothing",
+    "women's-clothing": "https://fakestoreapi.com/products/category/women's%20clothing",
   };
   const categoryList = useContext(CategoryContext);
-  const [dataProduct, isLoading] = useFetch(urlCategories[category || 'all categories']);
+  const [dataProduct, isLoading] = useFetch(urlCategories[category || 'all-categories']);
   const [sortValue, setSortValue] = useState('Price: High-Low');
   const [searchParams] = useSearchParams();
   const getSearchParams = searchParams.get('search'); // get search query from route
@@ -57,9 +57,9 @@ export default function Products() {
             ) : (
               ['all categories', ...categoryList].map((cat) => (
                 <Link
-                  to={`/products/category/${cat}`}
+                  to={`/products/category/${cat.replaceAll(' ', '-')}`}
                   key={cat}
-                  className={`nav-link ${cat === category ? 'selected' : ''}`}
+                  className={`nav-link ${cat.replaceAll(' ', '-') === category ? 'selected' : ''}`}
                 >
                   {capitalizeFirstLetter(cat)}
                 </Link>
