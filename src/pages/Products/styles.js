@@ -164,7 +164,9 @@ const ItemsSection = styled.div`
   .skeleton {
     display: flex;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
   .search-result {
@@ -174,6 +176,11 @@ const ItemsSection = styled.div`
 
   @media screen and (${devices.tablet}) {
     & > div:nth-child(1) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .skeleton {
       flex-direction: row;
       justify-content: space-between;
     }
